@@ -2,10 +2,7 @@
 #include <sstream>
 #include <string>
 
-LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-	return DefWindowProc(hwnd, uMsg, wParam, lParam);
-}
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 Window::Window(HINSTANCE hInstance)
 {
@@ -44,6 +41,11 @@ Window::Window(HINSTANCE hInstance)
 }
 
 Window::~Window()
+{
+
+}
+
+void Window::DrawContent(Scene scene)
 {
 
 }
