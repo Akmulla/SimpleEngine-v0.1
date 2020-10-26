@@ -12,4 +12,21 @@ int CALLBACK WinMain(
 	Timer timer;
 	Scene mainScene;
 	Window mainWindow(hInstance);
+
+	MSG msg;
+
+	while (true)
+	{
+		while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+		{
+			if (msg.message == WM_QUIT)
+			{
+				return msg.wParam;
+			}
+
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+	}
+
 }

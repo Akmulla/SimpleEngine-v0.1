@@ -39,6 +39,8 @@ Window::Window(HINSTANCE hInstance)
 		hInstance,
 		nullptr
 	);
+
+	ShowWindow(hwnd, SW_SHOW);
 }
 
 Window::~Window()
