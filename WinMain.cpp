@@ -11,5 +11,5 @@ int CALLBACK WinMain(
 {
 	Timer timer;
 	Scene mainScene;
-	Window mainWindow;
+	Window mainWindow(hInstance);
 }
