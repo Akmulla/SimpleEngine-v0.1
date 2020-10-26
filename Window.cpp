@@ -1,6 +1,4 @@
 #include "Window.h"
-#include <sstream>
-#include <string>
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -36,6 +34,8 @@ Window::Window(HINSTANCE hInstance)
 		hInstance,
 		nullptr
 	);
+
+	this->graphics = std::unique_ptr<Graphics>(new Graphics(hwnd));
 
 	ShowWindow(hwnd, SW_SHOW);
 }
