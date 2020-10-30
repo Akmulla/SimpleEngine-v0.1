@@ -5,8 +5,8 @@ class Timer
 {
 public:
 	Timer();
-	float Mark();
-	float Peek();
+	double Mark();
+	double Peek();
 private:
 	std::chrono::steady_clock::time_point last;
 };
