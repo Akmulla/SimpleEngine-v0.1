@@ -1,6 +1,15 @@
 #include "Window.h"
 
-LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+	switch (uMsg)
+	{
+	default:
+		break;
+	}
+
+	return DefWindowProc(hwnd, uMsg, wParam, lParam);
+}
 
 Window::Window(HINSTANCE hInstance)
 {
@@ -42,10 +51,26 @@ Window::Window(HINSTANCE hInstance)
 
 Window::~Window()
 {
-
+	graphics.release();
 }
 
 void Window::DrawContent(Scene scene)
 {
 
+}
+
+int Window::ProcessInput()
+{
+	MSG msg;
+
+	while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+	{
+		if (msg.message == WM_QUIT)
+		{
+			//return msg.wParam;
+		}
+
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
 }

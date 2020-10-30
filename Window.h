@@ -13,6 +13,7 @@ public:
 	Window(HINSTANCE);
 	~Window();
 	void DrawContent(Scene);
+	int ProcessInput();
 private:
 	HWND hwnd;
 	std::unique_ptr<Graphics> graphics;

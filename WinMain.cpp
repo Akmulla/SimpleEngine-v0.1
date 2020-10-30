@@ -3,18 +3,12 @@
 #include "Scene.h"
 #include "Window.h"
 
-
-
-LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+struct InputData
 {
-	switch (uMsg)
-	{
-	default:
-		break;
-	}
-
-	return DefWindowProc(hwnd, uMsg, wParam, lParam);
-}
+public:
+	double verticalAxis;
+	double horizontalAxis;
+};
 
 int CALLBACK WinMain(
 	_In_ HINSTANCE hInstance,
@@ -26,23 +20,15 @@ int CALLBACK WinMain(
 	Scene mainScene;
 	Window mainWindow(hInstance);
 
-	MSG msg;
+	InputData inputData;
 
 	while (true)
 	{
 		//Get Input here
-		while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
-		{
-			if (msg.message == WM_QUIT)
-			{
-				return msg.wParam;
-			}
-
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
-		}
+		mainWindow.ProcessInput();
 
 		//Do scene update
+		//mainScene.DoUpdate();
 
 		//Draw result
 

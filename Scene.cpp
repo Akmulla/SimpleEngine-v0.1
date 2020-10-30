@@ -9,3 +9,8 @@ Scene::~Scene()
 {
 
 }
+
+void Scene::DoUpdate(double dt)
+{
+
+}
