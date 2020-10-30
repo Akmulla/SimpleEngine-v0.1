@@ -5,6 +5,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	switch (uMsg)
 	{
 	default:
+
 		break;
 	}
 
@@ -67,7 +68,7 @@ int Window::ProcessInput()
 	{
 		if (msg.message == WM_QUIT)
 		{
-			//return msg.wParam;
+			return msg.wParam;
 		}
 
 		TranslateMessage(&msg);

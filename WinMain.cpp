@@ -2,13 +2,7 @@
 #include "Timer.h"
 #include "Scene.h"
 #include "Window.h"
-
-struct InputData
-{
-public:
-	double verticalAxis;
-	double horizontalAxis;
-};
+#include "SupportDataStructures.h"
 
 int CALLBACK WinMain(
 	_In_ HINSTANCE hInstance,
@@ -24,14 +18,15 @@ int CALLBACK WinMain(
 
 	while (true)
 	{
+		double dt = timer.Mark();
+
 		//Get Input here
 		mainWindow.ProcessInput();
-
+		
 		//Do scene update
-		//mainScene.DoUpdate();
+		mainScene.DoUpdate(dt);
 
 		//Draw result
-
+		mainWindow.DrawContent(mainScene);
 	}
-
 }
