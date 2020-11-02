@@ -75,7 +75,7 @@ Window::~Window()
 
 void Window::DrawContent(Scene scene)
 {
-
+	
 }
 
 int Window::ProcessInput(InputData& inputData)
