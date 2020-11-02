@@ -59,9 +59,16 @@ void Graphics::EndFrame()
 void Graphics::RenderGameObject(const GameObject& gameObject)
 {
 	//using namespace Microsoft::WRL;
-
-	DirectX::XMFLOAT3* dxVertices = gameObject.dxVertices;
+	DirectX::XMFLOAT3* baseVertices = gameObject.dxVertices;
 	int size = gameObject.size;
+	DirectX::XMFLOAT3* dxVertices = new DirectX::XMFLOAT3[size];
+	for (int i = 0; i < size; i++)
+	{
+		DirectX::XMVECTOR v1 = DirectX::XMLoadFloat3(&baseVertices[i]);
+		DirectX::XMVECTOR v2 = DirectX::XMLoadFloat3(&gameObject.position);
+		DirectX::XMStoreFloat3(&dxVertices[i],DirectX::XMVectorAdd (v1 , v2));
+	}
+
 	
 	//vertex buffer
 	Microsoft::WRL::ComPtr<ID3D11Buffer> pVertexBuffer;
