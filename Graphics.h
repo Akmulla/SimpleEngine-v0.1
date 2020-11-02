@@ -6,6 +6,7 @@
 #include <d3dcompiler.h>
 #include "SupportDataStructures.h"
 #include "GameObject.h"
+#include <wrl.h>
 
 class Graphics
 {

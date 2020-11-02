@@ -51,3 +51,10 @@ void Graphics::ClearBackground(ColorRGBA colorRGBA)
 	pContext->ClearRenderTargetView(pTarget, color);
 	pSwap->Present(1u, 0u);
 }
+
+void Graphics::RenderGameObject(const GameObject&)
+{
+	using namespace Microsoft::WRL;
+
+
+}
