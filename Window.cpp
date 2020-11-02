@@ -95,6 +95,8 @@ int Window::ProcessInput(InputData& inputData)
 
 		inputData = this->inputData;
 	}
+
+	return 0;
 }
 
 Window* Window::GetMainWindow()

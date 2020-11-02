@@ -5,6 +5,7 @@
 #include <d3d11.h>
 #include <d3dcompiler.h>
 #include "SupportDataStructures.h"
+#include "GameObject.h"
 
 class Graphics
 {
@@ -12,6 +13,7 @@ public:
 	Graphics(HWND hwnd);
 	~Graphics();
 	void ClearBackground(ColorRGBA);
+	void RenderGameObject(const GameObject&);
 private:
 	ID3D11Device* pDevice = nullptr;
 	IDXGISwapChain* pSwap = nullptr;
