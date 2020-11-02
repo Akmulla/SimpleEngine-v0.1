@@ -15,8 +15,8 @@ public:
 struct ColorRGBA
 {
 public:
-	double r;
-	double g;
-	double b;
-	double a;
+	float r;
+	float g;
+	float b;
+	float a;
 };

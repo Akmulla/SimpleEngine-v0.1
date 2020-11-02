@@ -75,7 +75,8 @@ Window::~Window()
 
 void Window::DrawContent(Scene scene)
 {
-	
+	ColorRGBA c { 1,0,0,1 };
+	graphics->ClearBackground(c);
 }
 
 int Window::ProcessInput(InputData& inputData)
