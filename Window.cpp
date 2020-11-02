@@ -12,6 +12,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
 
+Window* Window::mainWindow;
+
 Window::Window(HINSTANCE hInstance)
 {
 	const auto winClassName = "SimpleExampleWindowClass";
@@ -46,9 +48,11 @@ Window::Window(HINSTANCE hInstance)
 	);
 
 	this->graphics = std::unique_ptr<Graphics>(new Graphics(hwnd));
+	Window::mainWindow = this;
 
 	ShowWindow(hwnd, SW_SHOW);
 }
+
 
 Window::~Window()
 {
@@ -60,7 +64,7 @@ void Window::DrawContent(Scene scene)
 
 }
 
-int Window::ProcessInput()
+int Window::ProcessInput(InputData& inputData)
 {
 	MSG msg;
 
@@ -74,4 +78,9 @@ int Window::ProcessInput()
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 	}
+}
+
+Window& Window::GetMainWindow()
+{
+	return *mainWindow;
 }

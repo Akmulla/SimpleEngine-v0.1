@@ -21,7 +21,7 @@ int CALLBACK WinMain(
 		double dt = timer.Mark();
 
 		//Get Input here
-		mainWindow.ProcessInput();
+		mainWindow.ProcessInput(inputData);
 		
 		//Do scene update
 		mainScene.DoUpdate(dt);
