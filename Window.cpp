@@ -2,15 +2,31 @@
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	switch (uMsg)
-	{
-	default:
+	Window* mainWindow = Window::GetMainWindow();
 
-		break;
+	if (uMsg == WM_KEYDOWN)
+	{
+		switch (wParam)
+		{
+		case VK_UP:
+			mainWindow->inputData.verticalAxis = 1.0;
+			break;
+		case VK_DOWN:
+			mainWindow->inputData.verticalAxis = -1.0;
+			break;
+		case VK_RIGHT:
+			mainWindow->inputData.horizontalAxis = 1.0;
+			break;
+		case VK_LEFT:
+			mainWindow->inputData.horizontalAxis = -1.0;
+			break;
+		}
 	}
 
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
+
+Window* Window::mainWindow;
 
 Window::Window(HINSTANCE hInstance)
 {
@@ -46,9 +62,11 @@ Window::Window(HINSTANCE hInstance)
 	);
 
 	this->graphics = std::unique_ptr<Graphics>(new Graphics(hwnd));
+	Window::mainWindow = this;
 
 	ShowWindow(hwnd, SW_SHOW);
 }
+
 
 Window::~Window()
 {
@@ -60,7 +78,7 @@ void Window::DrawContent(Scene scene)
 
 }
 
-int Window::ProcessInput()
+int Window::ProcessInput(InputData& inputData)
 {
 	MSG msg;
 
@@ -73,5 +91,12 @@ int Window::ProcessInput()
 
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
+
+		inputData = this->inputData;
 	}
+}
+
+Window* Window::GetMainWindow()
+{
+	return mainWindow;
 }
