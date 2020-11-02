@@ -15,6 +15,8 @@ void InitScene(Scene& scene)
 	dxVertices[1].y = -0.5f;
 	dxVertices[2].x = -0.5f;
 	dxVertices[2].y = -0.5f;
+	//dxVertices[3].x = -1.0f;
+	//dxVertices[3].y = -0.5f;
 	GameObject* obj = new GameObject(dxVertices, 3);
 	scene.gameObjects.push_back(*obj);
 }
