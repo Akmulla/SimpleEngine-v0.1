@@ -1,4 +1,5 @@
 #include <Windows.h>
+#include <iostream>
 #include "Timer.h"
 #include "Scene.h"
 #include "Window.h"
@@ -21,6 +22,7 @@ int CALLBACK WinMain(
 		double dt = timer.Mark();
 
 		//Get Input here
+		inputData.Clear();
 		mainWindow.ProcessInput(inputData);
 		
 		//Do scene update

@@ -15,9 +15,11 @@ public:
 	~Window();
 	void DrawContent(Scene);
 	int ProcessInput(InputData&);
-	static Window& GetMainWindow();
+	static Window* GetMainWindow();
+	InputData inputData;
 private:
 	static Window* mainWindow;
 	HWND hwnd;
 	std::unique_ptr<Graphics> graphics;
+	
 };

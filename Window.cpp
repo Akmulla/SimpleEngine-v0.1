@@ -2,11 +2,25 @@
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	switch (uMsg)
-	{
-	default:
+	Window* mainWindow = Window::GetMainWindow();
 
-		break;
+	if (uMsg == WM_KEYDOWN)
+	{
+		switch (wParam)
+		{
+		case VK_UP:
+			mainWindow->inputData.verticalAxis = 1.0;
+			break;
+		case VK_DOWN:
+			mainWindow->inputData.verticalAxis = -1.0;
+			break;
+		case VK_RIGHT:
+			mainWindow->inputData.horizontalAxis = 1.0;
+			break;
+		case VK_LEFT:
+			mainWindow->inputData.horizontalAxis = -1.0;
+			break;
+		}
 	}
 
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);
@@ -77,10 +91,12 @@ int Window::ProcessInput(InputData& inputData)
 
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
+
+		inputData = this->inputData;
 	}
 }
 
-Window& Window::GetMainWindow()
+Window* Window::GetMainWindow()
 {
-	return *mainWindow;
+	return mainWindow;
 }
