@@ -22,7 +22,7 @@ int CALLBACK WinMain(
 		double dt = timer.Mark();
 
 		//Get Input here
-		inputData.Clear();
+		//inputData.Clear();
 		mainWindow.ProcessInput(inputData);
 		
 		//Do scene update
@@ -31,4 +31,9 @@ int CALLBACK WinMain(
 		//Draw result
 		mainWindow.DrawContent(mainScene);
 	}
+}
+
+void InitScene(Scene& scene)
+{
+
 }

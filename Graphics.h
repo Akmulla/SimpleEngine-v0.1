@@ -16,6 +16,7 @@ public:
 	~Graphics();
 	void ClearBackground(ColorRGBA);
 	void RenderGameObject(const GameObject&);
+	void EndFrame();
 private:
 	ID3D11Device* pDevice = nullptr;
 	IDXGISwapChain* pSwap = nullptr;

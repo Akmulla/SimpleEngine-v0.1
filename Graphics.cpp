@@ -49,6 +49,10 @@ void Graphics::ClearBackground(ColorRGBA colorRGBA)
 {
 	const float color[] = { colorRGBA.r,colorRGBA.g,colorRGBA.b,colorRGBA.a };
 	pContext->ClearRenderTargetView(pTarget, color);
+}
+
+void Graphics::EndFrame()
+{
 	pSwap->Present(1u, 0u);
 }
 
