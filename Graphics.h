@@ -7,6 +7,7 @@
 #include "SupportDataStructures.h"
 #include "GameObject.h"
 #include <wrl.h>
+#include <array>
 
 class Graphics
 {

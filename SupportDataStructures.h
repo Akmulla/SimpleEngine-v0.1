@@ -20,3 +20,10 @@ public:
 	float b;
 	float a;
 };
+
+struct Vertex
+{
+	float x;
+	float y;
+	float z;
+};
