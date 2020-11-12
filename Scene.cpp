@@ -1,5 +1,6 @@
 #include "Scene.h"
 #include "Window.h"
+
 Scene::Scene()
 {
 
@@ -17,11 +18,10 @@ void Scene::DoUpdate(double dt)
 
 	for (int i = 0; i < gameObjects.size(); i++)
 	{
-		using namespace DirectX;
+		/*using namespace DirectX;
 		XMFLOAT3 movement{ (float)(inputData.horizontalAxis * dt * 5),(float)( inputData.verticalAxis * dt * 5), 0.0f };
 		XMVECTOR v1 = DirectX::XMLoadFloat3(&gameObjects[i].position);
 		XMVECTOR v2 = DirectX::XMLoadFloat3(&movement);
-		XMStoreFloat3(&gameObjects[i].position, DirectX::XMVectorAdd(v1, v2));
-		//gameObjects[i].position 
+		XMStoreFloat3(&gameObjects[i].position, DirectX::XMVectorAdd(v1, v2));*/
 	}
 }
