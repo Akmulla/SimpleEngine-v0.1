@@ -10,5 +10,5 @@ public:
 	Vector2 position;
 	void Move(const Vector2& movement);
 private:
-	DirectX::XMFLOAT3 position;
+	DirectX::XMFLOAT3 dxPosition;
 };

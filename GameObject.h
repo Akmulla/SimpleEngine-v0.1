@@ -14,11 +14,13 @@ class GameObject
 public:
 	GameObject(DirectX::XMFLOAT3* dxVertices,int size);
 	~GameObject();
-	std::vector<std::shared_ptr<Component>> components;
+
 	DirectX::XMFLOAT3 position;
 	//DirectX::XMFLOAT3* dxVertices;
 	int size;
 
 	DirectX::XMFLOAT3 dxCoord;
 	DirectX::XMFLOAT3* dxVertices;
+private:
+	std::vector<Component*> components;
 };
