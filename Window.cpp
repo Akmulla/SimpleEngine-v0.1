@@ -3,6 +3,7 @@
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	Window* mainWindow = Window::GetMainWindow();
+	mainWindow->inputData.Clear();
 
 	if (uMsg == WM_KEYDOWN)
 	{
@@ -30,6 +31,7 @@ Window* Window::mainWindow;
 
 Window::Window(HINSTANCE hInstance)
 {
+	Window::mainWindow = this;
 	const auto winClassName = "SimpleExampleWindowClass";
 	WNDCLASSEX wc = { };
 	wc.cbSize = sizeof(wc);
@@ -62,11 +64,10 @@ Window::Window(HINSTANCE hInstance)
 	);
 
 	this->graphics = std::unique_ptr<Graphics>(new Graphics(hwnd));
-	Window::mainWindow = this;
+	
 
 	ShowWindow(hwnd, SW_SHOW);
 }
-
 
 Window::~Window()
 {
@@ -75,7 +76,15 @@ Window::~Window()
 
 void Window::DrawContent(Scene scene)
 {
+	ColorRGBA c { 1,0,0,1 };
+	graphics->ClearBackground(c);
+	auto gameObjects = scene.gameObjects;
+	for (int i = 0; i < gameObjects.size(); i++)
+	{
+		graphics->RenderGameObject(gameObjects[i]);
+	}
 
+	graphics->EndFrame();
 }
 
 int Window::ProcessInput(InputData& inputData)
@@ -94,6 +103,8 @@ int Window::ProcessInput(InputData& inputData)
 
 		inputData = this->inputData;
 	}
+
+	return 0;
 }
 
 Window* Window::GetMainWindow()

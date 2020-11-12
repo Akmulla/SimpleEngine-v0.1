@@ -2,6 +2,8 @@
 #include "GameObject.h"
 #include <vector>
 
+#include "SupportDataStructures.h"
+
 class Scene
 {
 public:
