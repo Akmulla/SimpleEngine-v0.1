@@ -1,9 +1,11 @@
 #pragma once
 
-struct Vector3
+struct Vector2
 {
 public:
 	double x;
 	double y;
-	double z;
+
+	Vector2();
+	Vector2(double x, double y);
 };
