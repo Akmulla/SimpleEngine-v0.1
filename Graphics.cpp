@@ -93,7 +93,7 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 	Microsoft::WRL::ComPtr<ID3D11PixelShader> pPixelShader;
 	D3DReadFileToBlob(L"PixelShader.cso", &pBlob);
 	pDevice->CreatePixelShader(pBlob->GetBufferPointer(), pBlob->GetBufferSize(), nullptr, &pPixelShader);
-
+	
 	pContext->PSSetShader(pPixelShader.Get(), nullptr, 0u);
 	////
 
