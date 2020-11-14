@@ -4,10 +4,7 @@
 #include <memory>
 #include <vector>
 
-class Component
-{
-
-};
+class Component;
 
 class GameObject
 {

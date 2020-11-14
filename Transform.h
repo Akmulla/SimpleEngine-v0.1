@@ -1,15 +1,13 @@
 #pragma once
 #include "GameObject.h"
 #include "Geometry.h"
+#include "Component.h"
 
 class Transform : Component
 {
 public:
 	Transform();
 	~Transform();
-	Vector2 m_position;
+	Vector2 position;
 	void Move(const Vector2& movement);
-private:
-	DirectX::XMFLOAT3 dxPosition;
-	void UpdateDxCoord();
 };
