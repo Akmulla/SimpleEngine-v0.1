@@ -3,5 +3,9 @@
 
 class Component
 {
-	GameObject* gameObject;
+public:
+	Component();
+	void BindGameObject(GameObject& gameObject);
+private:
+	GameObject* m_gameObject;
 };

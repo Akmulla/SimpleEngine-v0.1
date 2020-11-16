@@ -9,8 +9,9 @@ class Component;
 class GameObject
 {
 public:
-	GameObject(DirectX::XMFLOAT3* dxVertices,int size);
+	GameObject(DirectX::XMFLOAT3*,int);
 	~GameObject();
+	void AddComponent(Component&);
 
 	DirectX::XMFLOAT3 position;
 	//DirectX::XMFLOAT3* dxVertices;
@@ -19,5 +20,5 @@ public:
 	DirectX::XMFLOAT3 dxCoord;
 	DirectX::XMFLOAT3* dxVertices;
 private:
-	std::vector<Component*> components;
+	std::vector<Component*> m_components;
 };
