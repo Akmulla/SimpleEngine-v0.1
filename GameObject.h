@@ -10,6 +10,7 @@ class GameObject
 {
 public:
 	GameObject(DirectX::XMFLOAT3*,int);
+	GameObject();
 	~GameObject();
 	void AddComponent(Component&);
 
@@ -26,9 +27,10 @@ public:
 		return nullptr;
 	}
 
+	void UpdateAllComponents(double);
+
 
 	DirectX::XMFLOAT3 position;
-	//DirectX::XMFLOAT3* dxVertices;
 	int size;
 
 	DirectX::XMFLOAT3 dxCoord;

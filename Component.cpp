@@ -14,3 +14,8 @@ void Component::Init()
 {
 
 }
+
+void Component::UpdateComponent(double dt)
+{
+
+}

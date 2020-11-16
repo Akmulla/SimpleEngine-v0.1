@@ -1,8 +1,10 @@
 #pragma once
 #include <DirectXMath.h>
+#include "GameObject.h"
+#include "Component.h"
 #include "Geometry.h"
 
-class Mesh
+class Mesh : Component
 {
 public:
 	Mesh(DirectX::XMFLOAT3 dxVertices);
