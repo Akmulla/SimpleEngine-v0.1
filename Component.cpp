@@ -9,3 +9,8 @@ void Component::BindGameObject(GameObject& gameObject)
 {
 	m_gameObject = &gameObject;
 }
+
+void Component::Init()
+{
+
+}
