@@ -13,7 +13,7 @@ class Window
 public:
 	Window(HINSTANCE);
 	~Window();
-	void DrawContent(Scene);
+	void DrawContent(Scene&);
 	int ProcessInput(InputData&);
 	static Window* GetMainWindow();
 	InputData inputData;

@@ -74,14 +74,14 @@ Window::~Window()
 	graphics.release();
 }
 
-void Window::DrawContent(Scene scene)
+void Window::DrawContent(Scene& scene)
 {
 	ColorRGBA c { 1,0,0,1 };
 	graphics->ClearBackground(c);
-	auto gameObjects = scene.gameObjects;
-	for (int i = 0; i < gameObjects.size(); i++)
+	//auto gameObjects = scene.gameObjects;
+	for (int i = 0; i < scene.gameObjects.size(); i++)
 	{
-		graphics->RenderGameObject(gameObjects[i]);
+		graphics->RenderGameObject(scene.gameObjects[i]);
 	}
 
 	graphics->EndFrame();

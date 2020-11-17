@@ -58,14 +58,20 @@ void Graphics::EndFrame()
 
 void Graphics::RenderGameObject(const GameObject& gameObject)
 {
+	
 	//using namespace Microsoft::WRL;
-	DirectX::XMFLOAT3* baseVertices = gameObject.dxVertices;
-	int size = gameObject.size;
+	Mesh* mesh = gameObject.GetComponent<Mesh>();
+	Transform* transform = gameObject.GetComponent<Transform>();
+
+	DirectX::XMFLOAT3* baseVertices = mesh->dxVertices;
+	int size = mesh->size;
 	DirectX::XMFLOAT3* dxVertices = new DirectX::XMFLOAT3[size];
+	DirectX::XMFLOAT3 dxPosition(transform->position.x, transform->position.y, 0.0f);
+
 	for (int i = 0; i < size; i++)
 	{
 		DirectX::XMVECTOR v1 = DirectX::XMLoadFloat3(&baseVertices[i]);
-		DirectX::XMVECTOR v2 = DirectX::XMLoadFloat3(&gameObject.position);
+		DirectX::XMVECTOR v2 = DirectX::XMLoadFloat3(&dxPosition);
 		DirectX::XMStoreFloat3(&dxVertices[i],DirectX::XMVectorAdd (v1 , v2));
 	}
 
@@ -93,7 +99,7 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 	Microsoft::WRL::ComPtr<ID3D11PixelShader> pPixelShader;
 	D3DReadFileToBlob(L"PixelShader.cso", &pBlob);
 	pDevice->CreatePixelShader(pBlob->GetBufferPointer(), pBlob->GetBufferSize(), nullptr, &pPixelShader);
-
+	
 	pContext->PSSetShader(pPixelShader.Get(), nullptr, 0u);
 	////
 
@@ -137,4 +143,5 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 	pContext->RSSetViewports(1u, &vp);
 
 	pContext->Draw(sizeof(DirectX::XMFLOAT3)*size, 0u);
+	
 }
