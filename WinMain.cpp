@@ -6,6 +6,7 @@
 #include "SupportDataStructures.h"
 #include "Mesh.h"
 #include "Component.h"
+#include "Transform.h"
 
 
 void InitScene(Scene& scene)
@@ -20,7 +21,9 @@ void InitScene(Scene& scene)
 
 	GameObject* obj = new GameObject();
 	Mesh* mesh = new Mesh(dxVertices, 3);
+	Transform* transform = new Transform();
 	obj->AddComponent(*mesh);
+	obj->AddComponent(*transform);
 
 	scene.gameObjects.push_back(*obj);
 }

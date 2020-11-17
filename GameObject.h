@@ -3,8 +3,11 @@
 #include "Geometry.h"
 #include <memory>
 #include <vector>
+#include "Component.h"
+#include "Mesh.h"
+#include "Transform.h"
 
-class Component;
+
 
 class GameObject
 {
@@ -14,11 +17,11 @@ public:
 	void AddComponent(Component&);
 
 	template<typename T>
-	T* GetComponent()
+	T* GetComponent() const
 	{
 		for (auto it = m_components.begin(); it != m_components.end(); ++it)
 		{
-			T* component = dynamic_cast<T*>(it);
+			T* component = dynamic_cast<T*>(*it);
 			if (component)
 				return component;
 		}
