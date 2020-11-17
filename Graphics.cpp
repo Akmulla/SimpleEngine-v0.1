@@ -58,6 +58,7 @@ void Graphics::EndFrame()
 
 void Graphics::RenderGameObject(const GameObject& gameObject)
 {
+	/*
 	//using namespace Microsoft::WRL;
 	DirectX::XMFLOAT3* baseVertices = gameObject.dxVertices;
 	int size = gameObject.size;
@@ -137,4 +138,5 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 	pContext->RSSetViewports(1u, &vp);
 
 	pContext->Draw(sizeof(DirectX::XMFLOAT3)*size, 0u);
+	*/
 }

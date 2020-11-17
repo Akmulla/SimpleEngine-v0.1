@@ -9,7 +9,6 @@ class Component;
 class GameObject
 {
 public:
-	GameObject(DirectX::XMFLOAT3*,int);
 	GameObject();
 	~GameObject();
 	void AddComponent(Component&);
@@ -28,13 +27,6 @@ public:
 	}
 
 	void UpdateAllComponents(double);
-
-
-	DirectX::XMFLOAT3 position;
-	int size;
-
-	DirectX::XMFLOAT3 dxCoord;
-	DirectX::XMFLOAT3* dxVertices;
 private:
 	std::vector<Component*> m_components;
 };
