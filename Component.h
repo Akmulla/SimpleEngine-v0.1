@@ -10,6 +10,6 @@ public:
 	void BindGameObject(GameObject& gameObject);
 	virtual void Init();
 	virtual void UpdateComponent(double dt);
-private:
+protected:
 	GameObject* m_gameObject;
 };

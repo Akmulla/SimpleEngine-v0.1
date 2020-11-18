@@ -5,5 +5,7 @@
 class Player : public Component
 {
 public:
+	Player(float movement_speed);
 	void UpdateComponent(double dt) override;
+	float movement_speed;
 };

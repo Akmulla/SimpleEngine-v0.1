@@ -7,6 +7,7 @@
 #include "Mesh.h"
 #include "Component.h"
 #include "Transform.h"
+#include "Player.h"
 
 
 void InitScene(Scene& scene)
@@ -22,8 +23,11 @@ void InitScene(Scene& scene)
 	GameObject* obj = new GameObject();
 	Mesh* mesh = new Mesh(dxVertices, 3);
 	Transform* transform = new Transform();
+	Player* player = new Player(1.0f);
+
 	obj->AddComponent(*mesh);
 	obj->AddComponent(*transform);
+	obj->AddComponent(*player);
 
 	scene.gameObjects.push_back(obj);
 }
