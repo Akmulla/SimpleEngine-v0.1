@@ -78,7 +78,7 @@ void Window::DrawContent(Scene& scene)
 {
 	ColorRGBA c { 1,0,0,1 };
 	graphics->ClearBackground(c);
-	//auto gameObjects = scene.gameObjects;
+
 	for (int i = 0; i < scene.gameObjects.size(); i++)
 	{
 		graphics->RenderGameObject(*(scene.gameObjects[i]));

@@ -16,9 +16,6 @@ Scene::~Scene()
 
 void Scene::DoUpdate(double dt)
 {
-	Window* mainWindow = Window::GetMainWindow();
-	InputData inputData = mainWindow->inputData;
-
 	for (int i = 0; i < gameObjects.size(); i++)
 	{
 		gameObjects[i]->UpdateAllComponents(dt);
