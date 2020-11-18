@@ -25,7 +25,7 @@ void InitScene(Scene& scene)
 	obj->AddComponent(*mesh);
 	obj->AddComponent(*transform);
 
-	scene.gameObjects.push_back(*obj);
+	scene.gameObjects.push_back(obj);
 }
 
 int CALLBACK WinMain(

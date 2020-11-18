@@ -8,7 +8,10 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-
+	for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
+	{
+		delete (*it);
+	}
 }
 
 void Scene::DoUpdate(double dt)
@@ -18,11 +21,6 @@ void Scene::DoUpdate(double dt)
 
 	for (int i = 0; i < gameObjects.size(); i++)
 	{
-		gameObjects[i].UpdateAllComponents(dt);
-		/*using namespace DirectX;
-		XMFLOAT3 movement{ (float)(inputData.horizontalAxis * dt * 5),(float)( inputData.verticalAxis * dt * 5), 0.0f };
-		XMVECTOR v1 = DirectX::XMLoadFloat3(&gameObjects[i].position);
-		XMVECTOR v2 = DirectX::XMLoadFloat3(&movement);
-		XMStoreFloat3(&gameObjects[i].position, DirectX::XMVectorAdd(v1, v2));*/
+		gameObjects[i]->UpdateAllComponents(dt);
 	}
 }

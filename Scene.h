@@ -10,5 +10,5 @@ public:
 	Scene();
 	~Scene();
 	void DoUpdate(double dt);
-	std::vector<GameObject> gameObjects;
+	std::vector<GameObject*> gameObjects;
 };
