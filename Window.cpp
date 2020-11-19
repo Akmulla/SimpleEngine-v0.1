@@ -3,7 +3,7 @@
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	Window* mainWindow = Window::GetMainWindow();
-	mainWindow->inputData.Clear();
+	//mainWindow->inputData.Clear();
 
 	if (uMsg == WM_KEYDOWN)
 	{
@@ -22,7 +22,26 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			mainWindow->inputData.horizontalAxis = -1.0;
 			break;
 		}
-	}
+	} else
+		if (uMsg == WM_KEYUP)
+		{
+			switch (wParam)
+			{
+			case VK_UP:
+				mainWindow->inputData.verticalAxis = 0.0;
+				break;
+			case VK_DOWN:
+				mainWindow->inputData.verticalAxis = -0.0;
+				break;
+			case VK_RIGHT:
+				mainWindow->inputData.horizontalAxis = 0.0;
+				break;
+			case VK_LEFT:
+				mainWindow->inputData.horizontalAxis = -0.0;
+				break;
+			}
+		}
+	
 
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);
 }
