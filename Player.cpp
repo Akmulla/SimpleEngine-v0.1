@@ -2,7 +2,7 @@
 
 Player::Player(float movement_speed) : movement_speed(movement_speed){}
 
-void Player::UpdateComponent(double dt)
+void Player::UpdateComponent(float dt)
 {
 	InputData input = Window::GetMainWindow()->inputData;
 

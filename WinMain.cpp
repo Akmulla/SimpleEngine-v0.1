@@ -47,7 +47,7 @@ int CALLBACK WinMain(
 
 	while (true)
 	{
-		double dt = timer.Mark();
+		float dt = timer.Mark();
 
 		//Get Input here
 		//inputData.Clear();

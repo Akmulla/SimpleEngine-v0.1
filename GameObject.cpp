@@ -17,7 +17,7 @@ void GameObject::AddComponent(Component& component)
 	m_components.push_back(&component);
 }
 
-void GameObject::UpdateAllComponents(double dt)
+void GameObject::UpdateAllComponents(float dt)
 {
 	for (auto it = m_components.begin(); it != m_components.end(); ++it)
 	{

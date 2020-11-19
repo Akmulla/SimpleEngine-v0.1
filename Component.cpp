@@ -10,12 +10,7 @@ void Component::BindGameObject(GameObject& gameObject)
 	m_gameObject = &gameObject;
 }
 
-void Component::Init()
-{
-
-}
-
-void Component::UpdateComponent(double dt)
+void Component::UpdateComponent(float dt)
 {
 
 }

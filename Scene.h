@@ -11,6 +11,6 @@ class Scene
 public:
 	Scene();
 	~Scene();
-	void DoUpdate(double dt);
+	void DoUpdate(float dt);
 	std::vector<GameObject*> gameObjects;
 };

@@ -29,7 +29,7 @@ public:
 		return nullptr;
 	}
 
-	void UpdateAllComponents(double);
+	void UpdateAllComponents(float);
 private:
 	std::vector<Component*> m_components;
 };
