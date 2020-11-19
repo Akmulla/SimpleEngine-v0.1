@@ -6,8 +6,8 @@ class Spawner : public Component
 {
 public:
 	float spawn_delay;
-	Spawner(GameObject&);
+	Spawner(GameObject&, float);
 	void Spawn();
 private:
-	GameObject* prefab;
+	const GameObject& prefab;
 };
