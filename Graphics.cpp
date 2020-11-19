@@ -63,6 +63,9 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 	Mesh* mesh = gameObject.GetComponent<Mesh>();
 	Transform* transform = gameObject.GetComponent<Transform>();
 
+	if (!mesh || !transform)
+		return;
+
 	DirectX::XMFLOAT3* baseVertices = mesh->dxVertices;
 	int size = mesh->size;
 	DirectX::XMFLOAT3* dxVertices = new DirectX::XMFLOAT3[size];

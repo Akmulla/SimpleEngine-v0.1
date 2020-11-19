@@ -9,8 +9,7 @@
 #include "Transform.h"
 #include "Player.h"
 
-
-void InitScene(Scene& scene)
+GameObject* CreatePlayer(Scene& scene)
 {
 	DirectX::XMFLOAT3* dxVertices = new DirectX::XMFLOAT3[3];
 	dxVertices[0].x = 0.0f;
@@ -29,7 +28,14 @@ void InitScene(Scene& scene)
 	obj->AddComponent(*transform);
 	obj->AddComponent(*player);
 
-	scene.gameObjects.push_back(obj);
+	return obj;
+}
+
+void InitScene(Scene& scene)
+{
+	GameObject* player = CreatePlayer(scene);
+
+	scene.gameObjects.push_back(player);
 }
 
 int CALLBACK WinMain(
