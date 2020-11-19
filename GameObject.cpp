@@ -1,10 +1,7 @@
 #include "GameObject.h"
 #include "Component.h"
 
-GameObject::GameObject()
-{
-
-}
+GameObject::GameObject(Scene& scene) : scene(scene) { }
 
 GameObject::~GameObject()
 {

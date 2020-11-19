@@ -1,8 +1,10 @@
 #pragma once
-#include "GameObject.h"
+
 #include <vector>
 
 #include "SupportDataStructures.h"
+
+class GameObject;
 
 class Scene
 {

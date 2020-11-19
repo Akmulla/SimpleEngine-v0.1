@@ -20,7 +20,7 @@ void InitScene(Scene& scene)
 	dxVertices[2].x = -0.5f;
 	dxVertices[2].y = -0.5f;
 
-	GameObject* obj = new GameObject();
+	GameObject* obj = new GameObject(scene);
 	Mesh* mesh = new Mesh(dxVertices, 3);
 	Transform* transform = new Transform();
 	Player* player = new Player(1.0f);

@@ -6,15 +6,15 @@
 #include "Component.h"
 #include "Mesh.h"
 #include "Transform.h"
-
-
+#include "Scene.h"
 
 class GameObject
 {
 public:
-	GameObject();
+	GameObject(Scene& scene);
 	~GameObject();
 	void AddComponent(Component&);
+	Scene& scene;
 
 	template<typename T>
 	T* GetComponent() const
