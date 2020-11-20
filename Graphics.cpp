@@ -114,6 +114,12 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 
 	pContext->VSSetShader(pVertexShader.Get(), 0, 0);
 
+	//Constant buffer for transformation matrix
+	struct ConstantBuffer
+	{
+		DirectX::XMMATRIX transformation;
+	};
+
 	Microsoft::WRL::ComPtr<ID3D11InputLayout> pInputLayout;
 	const D3D11_INPUT_ELEMENT_DESC ied[] =
 	{
@@ -148,3 +154,4 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 	pContext->Draw(sizeof(DirectX::XMFLOAT3)*size, 0u);
 	
 }
+
