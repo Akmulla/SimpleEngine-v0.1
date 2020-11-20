@@ -120,6 +120,26 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 		DirectX::XMMATRIX transformation;
 	};
 
+	const ConstantBuffer cb =
+	{
+		{
+			DirectX::XMMatrixRotationZ(transform->rotation)
+		}
+	};
+
+	Microsoft::WRL::ComPtr<ID3D11Buffer> pConstantBuffer;
+	CD3D11_BUFFER_DESC cb_desc;
+	cb_desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	cb_desc.Usage = D3D11_USAGE_DYNAMIC;
+	cb_desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	cb_desc.MiscFlags = 0u;
+	cb_desc.ByteWidth = sizeof(cb_desc);
+	cb_desc.StructureByteStride = 0u;
+	D3D11_SUBRESOURCE_DATA subresource = {};
+	subresource.pSysMem = &cb_desc;
+	pDevice->CreateBuffer(&cb_desc, &subresource, &pConstantBuffer);
+
+
 	Microsoft::WRL::ComPtr<ID3D11InputLayout> pInputLayout;
 	const D3D11_INPUT_ELEMENT_DESC ied[] =
 	{
