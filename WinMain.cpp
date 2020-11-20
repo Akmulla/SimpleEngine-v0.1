@@ -8,6 +8,7 @@
 #include "Component.h"
 #include "Transform.h"
 #include "Player.h"
+#include "Spawner.h"
 
 GameObject* CreatePlayer(Scene& scene)
 {
@@ -31,12 +32,44 @@ GameObject* CreatePlayer(Scene& scene)
 	return obj;
 }
 
+GameObject* CreateSpawner(Scene& scene)
+{
+	GameObject* spawner_obj = new GameObject(scene);
+	GameObject* enemy_prefab = new GameObject(scene);
+
+	DirectX::XMFLOAT3* dxVertices = new DirectX::XMFLOAT3[3];
+	dxVertices[0].x = 0.0f;
+	dxVertices[0].y = 0.5f;
+	dxVertices[1].x = 0.5f;
+	dxVertices[1].y = -0.5f;
+	dxVertices[2].x = -0.5f;
+	dxVertices[2].y = -0.5f;
+
+	Mesh* mesh = new Mesh(dxVertices, 3);
+	Transform* transform = new Transform();
+
+	enemy_prefab->AddComponent(*mesh);
+	enemy_prefab->AddComponent(*transform);
+
+	Spawner* spawner = new Spawner(*enemy_prefab, 2.0f);
+	spawner_obj->AddComponent(*(new Transform()));
+	spawner_obj->AddComponent(*spawner);
+
+
+	return spawner_obj;
+}
+
+
 void InitScene(Scene& scene)
 {
 	GameObject* player = CreatePlayer(scene);
+	GameObject* spawner = CreateSpawner(scene);
 
 	scene.gameObjects.push_back(player);
+	scene.gameObjects.push_back(spawner);
 }
+
+
 
 int CALLBACK WinMain(
 	_In_ HINSTANCE hInstance,
@@ -66,4 +99,3 @@ int CALLBACK WinMain(
 		mainWindow.DrawContent(mainScene);
 	}
 }
-

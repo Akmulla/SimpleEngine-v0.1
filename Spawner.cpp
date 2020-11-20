@@ -8,10 +8,17 @@ Spawner::Spawner(GameObject& game_object, float spawn_delay) : spawn_delay(spawn
 
 void Spawner::Spawn()
 {
-	m_gameObject->scene.gameObjects.push_back(new GameObject(prefab));
+	GameObject* new_obj = new GameObject(prefab);
+	new_obj->GetComponent<Transform>()->position = m_gameObject->GetComponent<Transform>()->position;
+	m_gameObject->scene.gameObjects.push_back(new_obj);
 }
 
 void Spawner::UpdateComponent(float dt) 
 {
-
+	time_from_last_tick += dt;
+	if (time_from_last_tick > spawn_delay)
+	{
+		time_from_last_tick = 0.0f;
+		Spawn();
+	}
 }

@@ -137,8 +137,8 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 
 	//configure viewport
 	CD3D11_VIEWPORT vp;
-	vp.Width = 640;
-	vp.Height = 480;
+	vp.Width = 1024;
+	vp.Height = 768;
 	vp.MinDepth = 0;
 	vp.MaxDepth = 1;
 	vp.TopLeftX = 0;
