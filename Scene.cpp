@@ -14,7 +14,7 @@ Scene::~Scene()
 	}
 }
 
-void Scene::DoUpdate(double dt)
+void Scene::DoUpdate(float dt)
 {
 	for (int i = 0; i < gameObjects.size(); i++)
 	{

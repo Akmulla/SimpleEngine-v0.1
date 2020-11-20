@@ -8,8 +8,7 @@ class Component
 public:
 	Component();
 	void BindGameObject(GameObject& gameObject);
-	virtual void Init();
-	virtual void UpdateComponent(double dt);
+	virtual void UpdateComponent(float dt);
 protected:
 	GameObject* m_gameObject;
 };

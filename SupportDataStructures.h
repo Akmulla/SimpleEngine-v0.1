@@ -3,12 +3,13 @@
 struct InputData
 {
 public:
-	double verticalAxis;
-	double horizontalAxis;
+	float verticalAxis;
+	float horizontalAxis;
+
 	void Clear()
 	{
-		verticalAxis = 0.0;
-		horizontalAxis = 0.0;
+		verticalAxis = 0.0f;
+		horizontalAxis = 0.0f;
 	}
 };
 

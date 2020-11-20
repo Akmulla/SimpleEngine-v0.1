@@ -63,6 +63,9 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 	Mesh* mesh = gameObject.GetComponent<Mesh>();
 	Transform* transform = gameObject.GetComponent<Transform>();
 
+	if (!mesh || !transform)
+		return;
+
 	DirectX::XMFLOAT3* baseVertices = mesh->dxVertices;
 	int size = mesh->size;
 	DirectX::XMFLOAT3* dxVertices = new DirectX::XMFLOAT3[size];
@@ -134,8 +137,8 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 
 	//configure viewport
 	CD3D11_VIEWPORT vp;
-	vp.Width = 640;
-	vp.Height = 480;
+	vp.Width = 1024;
+	vp.Height = 768;
 	vp.MinDepth = 0;
 	vp.MaxDepth = 1;
 	vp.TopLeftX = 0;
