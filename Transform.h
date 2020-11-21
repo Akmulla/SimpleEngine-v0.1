@@ -9,5 +9,6 @@ public:
 	Transform();
 	~Transform();
 	Vector2 position;
+	float rotation;
 	void Move(const Vector2& movement);
 };
