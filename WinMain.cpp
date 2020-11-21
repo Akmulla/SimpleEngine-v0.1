@@ -51,7 +51,7 @@ GameObject* CreateSpawner(Scene& scene)
 	enemy_prefab->AddComponent(*mesh);
 	enemy_prefab->AddComponent(*transform);
 
-	Spawner* spawner = new Spawner(*enemy_prefab, 2.0f);
+	Spawner* spawner = new Spawner(*enemy_prefab, 20.0f);
 	spawner_obj->AddComponent(*(new Transform()));
 	spawner_obj->AddComponent(*spawner);
 
