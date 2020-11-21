@@ -138,8 +138,10 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 	D3D11_SUBRESOURCE_DATA subresource = {};
 	subresource.pSysMem = &cb_desc;
 	pDevice->CreateBuffer(&cb_desc, &subresource, &pConstantBuffer);
+	pContext->VSSetConstantBuffers(0u, 1u, pConstantBuffer.GetAddressOf());
 
 
+	//////
 	Microsoft::WRL::ComPtr<ID3D11InputLayout> pInputLayout;
 	const D3D11_INPUT_ELEMENT_DESC ied[] =
 	{
