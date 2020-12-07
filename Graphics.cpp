@@ -73,9 +73,10 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 
 	for (int i = 0; i < size; i++)
 	{
-		DirectX::XMVECTOR v1 = DirectX::XMLoadFloat3(&baseVertices[i]);
-		DirectX::XMVECTOR v2 = DirectX::XMLoadFloat3(&dxPosition);
-		DirectX::XMStoreFloat3(&dxVertices[i],DirectX::XMVectorAdd (v1 , v2));
+		//DirectX::XMVECTOR v1 = DirectX::XMLoadFloat3(&baseVertices[i]);
+		//DirectX::XMVECTOR v2 = DirectX::XMLoadFloat3(&dxPosition);
+		//DirectX::XMStoreFloat3(&dxVertices[i],DirectX::XMVectorAdd (v1 , v2));
+		dxVertices[i] = baseVertices[i];
 	}
 
 	
