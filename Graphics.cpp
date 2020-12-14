@@ -125,8 +125,8 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 	{
 		{
 			DirectX::XMMatrixTranspose( 
-				DirectX::XMMatrixTranslation(transform->position.x, transform->position.y, 0.0f) * 
-				DirectX::XMMatrixRotationZ(transform->rotation)
+			DirectX::XMMatrixRotationZ(transform->rotation) *
+				DirectX::XMMatrixTranslation(transform->position.x, transform->position.y, 0.0f)
 			)
 		}
 	};
