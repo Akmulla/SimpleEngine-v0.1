@@ -37,21 +37,34 @@ GameObject* CreateSpawner(Scene& scene)
 	GameObject* spawner_obj = new GameObject(scene);
 	GameObject* enemy_prefab = new GameObject(scene);
 
-	DirectX::XMFLOAT3* dxVertices = new DirectX::XMFLOAT3[3];
+	DirectX::XMFLOAT3* dxVertices = new DirectX::XMFLOAT3[6];
 	dxVertices[0].x = 0.0f;
-	dxVertices[0].y = 0.5f;
-	dxVertices[1].x = 0.5f;
-	dxVertices[1].y = -0.5f;
-	dxVertices[2].x = -0.5f;
-	dxVertices[2].y = -0.5f;
+	dxVertices[0].y = 0.0f;
 
-	Mesh* mesh = new Mesh(dxVertices, 3);
+	dxVertices[1].x = 0.0f;
+	dxVertices[1].y = 0.5f;
+
+	dxVertices[2].x = 0.5f;
+	dxVertices[2].y = 0.5f;
+
+	dxVertices[3].x = 0.5f;
+	dxVertices[3].y = 0.5f;
+
+	dxVertices[4].x = 0.5f;
+	dxVertices[4].y = 0.0f;
+
+	dxVertices[5].x = 0.0f;
+	dxVertices[5].y = 0.0f;
+
+	
+
+	Mesh* mesh = new Mesh(dxVertices, 6);
 	Transform* transform = new Transform();
 
 	enemy_prefab->AddComponent(*mesh);
 	enemy_prefab->AddComponent(*transform);
 
-	Spawner* spawner = new Spawner(*enemy_prefab, 20.0f);
+	Spawner* spawner = new Spawner(*enemy_prefab, 2.0f);
 	spawner_obj->AddComponent(*(new Transform()));
 	spawner_obj->AddComponent(*spawner);
 
