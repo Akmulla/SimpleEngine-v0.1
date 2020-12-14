@@ -124,7 +124,10 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 	const ConstantBuffer cb =
 	{
 		{
-			DirectX::XMMatrixRotationZ(transform->rotation)
+			DirectX::XMMatrixTranspose( 
+				DirectX::XMMatrixTranslation(transform->position.x, transform->position.y, 0.0f) * 
+				DirectX::XMMatrixRotationZ(transform->rotation)
+			)
 		}
 	};
 
