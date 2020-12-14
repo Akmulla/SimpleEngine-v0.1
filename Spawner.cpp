@@ -19,6 +19,6 @@ void Spawner::UpdateComponent(float dt)
 	if (time_from_last_tick > spawn_delay)
 	{
 		time_from_last_tick = 0.0f;
-		//Spawn();
+		Spawn();
 	}
 }
