@@ -8,6 +8,7 @@
 #include <array>
 #include "Mesh.h"
 #include "Transform.h"
+#include "Inc/SpriteBatch.h"
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib,"D3DCompiler.lib")

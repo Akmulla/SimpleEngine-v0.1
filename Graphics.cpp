@@ -79,7 +79,6 @@ void Graphics::RenderGameObject(const GameObject& gameObject)
 		dxVertices[i] = baseVertices[i];
 	}
 
-	
 	//vertex buffer
 	Microsoft::WRL::ComPtr<ID3D11Buffer> pVertexBuffer;
 	D3D11_BUFFER_DESC bd = {};
